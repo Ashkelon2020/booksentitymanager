@@ -3,6 +3,7 @@ package telran.ashkelon2020.book.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -26,7 +27,7 @@ public class Publisher implements Serializable {
 	private static final long serialVersionUID = 2936504086684091721L;
 	@Id
 	String publisherName;
-	@OneToMany(mappedBy = "publisher")
+	@OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL)
 	Set<Book> books;
 
 	public Publisher(String publisherName) {
